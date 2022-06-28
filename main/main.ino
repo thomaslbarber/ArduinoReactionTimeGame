@@ -15,8 +15,9 @@ LiquidCrystal lcd(BS_PIN, E_PIN, D4_PIN, D5_PIN, D6_PIN, D7_PIN);
 
 
 void setup() {
-  // put your setup code here, to run once:
-
+  lcd.begin(16, 2);
+  
+  pinMode(2, INPUT_PULLUP);
 }
 
 void loop() {
