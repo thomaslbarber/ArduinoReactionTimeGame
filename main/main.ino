@@ -13,6 +13,8 @@
 // The display.
 LiquidCrystal lcd(BS_PIN, E_PIN, D4_PIN, D5_PIN, D6_PIN, D7_PIN);
 
+bool startFinished = false;
+
 
 void setup() {
   lcd.begin(16, 2);
@@ -21,6 +23,22 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  startingLoop();
+}
 
+void startingLoop() {
+  // Print starting message to the LED.
+  lcd.setCursor(0, 0);
+  lcd.print("Press the button");
+  lcd.setCursor(0, 1);
+  lcd.print("to begin!");
+
+  // Loop while the user hasn't pressed the button to start.
+  while (!startFinished) {
+    // Start the game on button press.
+    if (digitalRead(BTN_PIN) == 0) {
+      lcd.clear();
+      startFinished = true;
+    }
+  }
 }
