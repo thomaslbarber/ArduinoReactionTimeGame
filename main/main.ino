@@ -9,6 +9,9 @@
 #define D6_PIN 11
 #define D7_PIN 12
 #define BTN_PIN 13
+#define MIN_DELAY 3000
+#define MAX_DELAY 6000
+
 
 // The display.
 LiquidCrystal lcd(BS_PIN, E_PIN, D4_PIN, D5_PIN, D6_PIN, D7_PIN);
@@ -24,6 +27,8 @@ void setup() {
 
 void loop() {
   startingLoop();
+
+  playGame();
 }
 
 void startingLoop() {
@@ -41,4 +46,27 @@ void startingLoop() {
       startFinished = true;
     }
   }
+}
+
+// Provides a full iteration of the game.
+void playGame() {
+  readyState();
+ 
+  delay(random(MIN_DELAY, MAX_DELAY));
+
+  goState();
+}
+
+// Displays a ready message to the display.
+void readyState() {  
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Ready...");
+}
+
+// Displays a go message to the display, signalling the user to press the button.
+void goState() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("GO!");
 }
