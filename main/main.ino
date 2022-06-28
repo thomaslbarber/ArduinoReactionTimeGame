@@ -55,6 +55,8 @@ void playGame() {
   delay(random(MIN_DELAY, MAX_DELAY));
 
   goState();
+
+  reactionTimeInput();
 }
 
 // Displays a ready message to the display.
@@ -69,4 +71,49 @@ void goState() {
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("GO!");
+}
+
+// Waits for the user to press the button, outputting their reaction time to the display.
+void reactionTimeInput() 
+{
+  bool waiting = true;
+  float startTime = second();
+  
+  while (waiting) {
+    if (digitalRead(BTN_PIN) == 0) {
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      
+      float reactionTime = second() - startTime;
+      
+      lcd.print("Time: ");
+      lcd.print(reactionTime,3);
+      waiting = false;
+    }
+  }
+  
+  delay(3000);
+
+  playAgainInput();
+}
+
+// Waits for the user to press the button to play again.
+void playAgainInput() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Play again?");
+  
+  bool playAgain = false;
+  
+  while (!playAgain) {
+    if (digitalRead(BTN_PIN) == 0) {
+      lcd.clear();
+      return;
+    }
+  }
+}
+
+// Converts milliseconds to seconds.
+float second() {
+  return millis() * 0.001;
 }
