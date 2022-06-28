@@ -50,7 +50,7 @@ void loop() {
   playGame();
 }
 
-
+// Prints a starting message to the display and waits for user input.
 void startingLoop() {
   // Print starting message to the LED.
   lcd.setCursor(0, 0);
@@ -147,7 +147,7 @@ float second() {
 
 // Produces a rainbow effect for the LED.
 void rainbow() {
-  // Changing values of LEDs
+  // Changing values of the LED.
   r = r + r_dir;   
   g = g + g_dir;
   b = b + b_dir;
@@ -172,6 +172,7 @@ void rainbow() {
   delay(5);
 }
 
+// Sets the LED to a specific colour.
 void setColor(int r, int g, int b) {
   analogWrite(R_LED_PIN,   r);
   analogWrite(G_LED_PIN, g);
