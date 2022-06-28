@@ -1,5 +1,5 @@
 # ArduinoReactionTimeGame
-Measures the reaction time
+A short game that allows a player to measure their reaction time by reacting to an lcd display, alongside an rgb led light, via a button. The game prompts the player to press the button to begin, then adds a random delay between a 'ready' state and a 'go' state, where the player must press the button as soon as they seen the go state appear. This is represented by a 'GO!' message displayed on the screen, and the respective led appearing green. The device measures the time taken to react, and displays it to the user, before prompting them to play again.
 
 ### How To Use
 Change, within main.ino, the following definitions:
