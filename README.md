@@ -19,5 +19,4 @@ to the pin you're using for the button input...
 - #define B_LED_PIN 5
 
 to the pins you're using for the RGB (red/green/blue), where R_LED_PIN represents the red pin on the component, for instance.
-
-![Image failed to display.](ArduinoReactionGame.PNG)
+<img src="ArduinoReactionTimeGame.gif" width="1000">
